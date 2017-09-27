@@ -9,6 +9,7 @@ export class AlbumService {
 
   constructor(private cloudDB: AngularFireDatabase) {
     this.albums = cloudDB.list('albums');
+    console.log(this.albums);
   }
 
   getAlbums() {

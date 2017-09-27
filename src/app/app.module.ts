@@ -14,6 +14,7 @@ import { masterFirebaseConfig } from './api-keys';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AdminComponent } from './admin/admin.component';
+import { EditAlbumComponent } from './edit-album/edit-album.component';
 
 export const FIREBASE_CONFIG = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -30,7 +31,8 @@ export const FIREBASE_CONFIG = {
     AboutComponent,
     MarketplaceComponent,
     AlbumDetailComponent,
-    AdminComponent
+    AdminComponent,
+    EditAlbumComponent
   ],
   imports: [
     BrowserModule,
