@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Epicodus Tunes';
+  time = new Observable<string>((observer) => {
+    setInterval(()=> observer.next(new Date().toString()), 1000);
+  });
 }

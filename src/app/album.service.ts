@@ -9,7 +9,6 @@ export class AlbumService {
 
   constructor(private cloudDB: AngularFireDatabase) {
     this.albums = cloudDB.list('albums');
-    console.log(this.albums);
   }
 
   getAlbums() {
@@ -18,6 +17,18 @@ export class AlbumService {
 
   addAlbum(newAlbum: Album) {
    this.albums.push(newAlbum);
+ }
+
+ updateAlbum(localUpdatedAlbum) {
+   let albumInFireBase = this.getAlbumById(localUpdatedAlbum.$key);
+   console.log(albumInFireBase);
+
+   //update is a method on FirebaseObservable Object
+   albumInFireBase.update( {
+     title: localUpdatedAlbum.title,
+     artist: localUpdatedAlbum.artist,
+     description: localUpdatedAlbum.description
+   });
  }
 
   getAlbumById(albumId: string){
